@@ -1,0 +1,33 @@
+# python needs to be version 3.6+ to run script due to dependences 
+1. "python --version"
+
+# install openai(chatgpt) python-dotenv(create .env) speechrecognition(i wonder) pyttsx3(tts) numpy(calcs) pyaudio(access speaker + mic from python script)
+2. "pip install openai python-dotenv speechrecognition pyttsx3 numpy pyaudio"
+
+# raspberry pi settings for choosing speaker
+3. sudo raspi-config : go to system -> audio -> choose speaker
+
+# lsusb will list all usb devices 
+4. plug mic in, make sure it's recognized. to check if recognized use command "lsusb" 
+
+# install audio packages
+5. "sudo apt-get install alsa-utils"
+
+# this will list audio devices. remember num that mic is. should start with "card"
+6. "arecord -l"
+
+# this will set your mic as default
+7. "sudo nano /usr/share/alsa/alsa.conf" find these two lines '; defaults.ctl.card 0' and '; defaults.pcm.card 0'
+then remove the semicolon, and change the number to the number of your mic (refer to step 6). Save with Ctrl+O, exit with Ctrl+X.
+
+# test mic
+8. "arecord -f cd -D hw:1 | aplay". if you hear a sound, everything is okay so far.
+
+# use script!!
+9. use "cd folder_name" then "python talk-gpt-main.py"(refer to P.S.S) and everything should work!!
+
+
+
+P.S if you get a libespeak error on the raspberry pi, use this to resolve issue "sudo apt-get install libespeak1"
+
+P.S.S the script talk-gpt-main.py is avalible on https://github.com/System32hasBROKE/talkgpt-voice-assistant/blob/main/talk-gpt-main.py
