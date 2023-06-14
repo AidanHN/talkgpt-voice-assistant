@@ -17,7 +17,7 @@ r = sr.Recognizer()
 engine = pyttsx3.init()
 voice = engine.getProperty('voices')[1]
 engine.setProperty('voice', voice.id)
-name = "YOUR NAME HERE"
+name = "Aidan"
 greetings = [f"whats up master {name}", 
              "yeah?", 
              "Well, hello there, Master of Puns and Jokes - how's it going today?",
@@ -26,7 +26,7 @@ greetings = [f"whats up master {name}",
 
 # Listen for the wake word "hey pos"
 def listen_for_wake_word(source):
-    print("Listening for 'Hey POS'...")
+    print("Listening for 'Hey Raspberry Pi'...")
 
     while True:
         audio = r.listen(source)
