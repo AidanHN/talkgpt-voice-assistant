@@ -32,7 +32,7 @@ def listen_for_wake_word(source):
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
-            if "hey pos" in text.lower():
+            if "hey raspberry pie" in text.lower():
                 print("Wake word detected.")
                 engine.say(np.random.choice(greetings))
                 engine.runAndWait()
